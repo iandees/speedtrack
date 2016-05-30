@@ -19,7 +19,7 @@ Apply a threshold to the resulting grayscale image. This makes any pixel that ha
 
 ![](https://cloud.githubusercontent.com/assets/261584/15658333/2cd9c9c0-2689-11e6-89e8-cd403a1ee097.png)
 
-With the blobs found, I use OpenCV's `cv2.findContours()` function to find the outline contours for the blobs in the image. In our case, we only care about the bounding rectangle and centroid of the blobs.
+With the white blobs highlighted and more obvious, I use OpenCV's `cv2.findContours()` function to find the outline contours for the blobs in the image. In our case, we only care about the bounding rectangle and centroid of the blobs.
 
 When I find these blob centroids, I search through the existing list of centroids I've seen to find possible matches by both distance and direction (if known). If a match is found, I connect this frame's blob with the matched blob and can use it to make a track across the scene. If no existing blob matches, then we add a new one for later frames to track.
 
